@@ -1,6 +1,6 @@
-# Micronaut Demo With REST
+# Micronaut & Java Demo with a REST API
 
-Demo Micronaut application exposing a REST API to enable performing of CRUD operations on an entity.
+Demo Micronaut application written in Java exposing a REST API to enable performing of CRUD operations on an entity.
 
 The application stores entities in memory.
 
