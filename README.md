@@ -9,12 +9,14 @@ The application stores entities in memory.
 
 ## Running The Demo
 
+The project requires Java 21 to build.
+
 Build and test the Micronaut application:
 ```
 ./gradlew test
 ```
 
-Build a native executable with GraalVM (version 21) - [install instructions](https://www.graalvm.org/latest/docs/getting-started/), then:
+Optionally build a native executable with GraalVM (version 21) - [install instructions](https://www.graalvm.org/latest/docs/getting-started/), then:
 ```
 ./gradlew nativeCompile
 ```

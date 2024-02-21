@@ -33,7 +33,6 @@ public class ItemControllerTest {
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-//        serviceMock = mock(ItemService.class);
         controller = new ItemController(serviceMock);
     }
 
