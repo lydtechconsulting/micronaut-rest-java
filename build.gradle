@@ -10,7 +10,7 @@ repositories {
 dependencies {
     annotationProcessor("io.micronaut:micronaut-http-validation")
     annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
-    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
     implementation("io.micronaut.serde:micronaut-serde-jackson")
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.14.0'
     implementation group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
@@ -27,6 +27,7 @@ dependencies {
 application {
     mainClass.set("demo.DemoApplication")
 }
+
 java {
     sourceCompatibility = JavaVersion.toVersion("21")
     targetCompatibility = JavaVersion.toVersion("21")
@@ -45,17 +46,4 @@ graalvmNative {
 micronaut {
     runtime("netty")
     testRuntime("junit5")
-    processing {
-        incremental(true)
-        annotations("demo.*")
-    }
-    aot {
-        optimizeServiceLoading = false
-        convertYamlToJava = false
-        precomputeOperations = true
-        cacheEnvironment = true
-        optimizeClassLoading = true
-        deduceEnvironment = true
-        optimizeNetty = true
-    }
 }
