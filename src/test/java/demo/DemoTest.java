@@ -13,7 +13,7 @@ class DemoTest {
     EmbeddedApplication<?> application;
 
     @Test
-    void testItWorks() {
+    void testApplication() {
         Assertions.assertTrue(application.isRunning());
     }
 
