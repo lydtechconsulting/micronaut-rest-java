@@ -1,29 +1,26 @@
 # Micronaut & Java Demo with a REST API
 
-Demo Micronaut application written in Java exposing a REST API to enable performing of CRUD operations on an entity.
-
-The application stores entities in memory.
+Demo Micronaut application written in Java exposing a REST API to enable performing of CRUD operations on an entity.  The application stores entities in memory.
 
 <div style="text-align:center"><img src="micronaut-rest.png" /></div>
 <p style="text-align: center;"><I>Figure 1: Micronaut application with REST API</I></p>
+
+Demonstrates using both a standard JVM-based application and a native image using GraalVM.  GraalVM compiles the Java application ahead of time into a platform-specific native binary executable. This native executable does not require a Java runtime environment to execute. Instead, it can be executed directly on the target platform.  This can lead to faster startup times and reduced memory footprint compared to running on the JVM.
 
 ## Running The Demo
 
 The project requires Java 21 to build.
 
-Build and test the Micronaut application:
+Build and test the Micronaut application, and then run:
 ```
 ./gradlew clean test
-```
-
-Optionally build a native executable with GraalVM (version 21) - [install instructions](https://www.graalvm.org/latest/docs/getting-started/), then:
-```
-./gradlew nativeCompile
-```
-
-Run the Micronaut application:
-```
 ./gradlew run
+```
+
+Alternatively build and test a native executable with GraalVM (version 21) - [install instructions](https://www.graalvm.org/latest/docs/getting-started/) - and then run:
+```
+./gradlew clean nativeTest
+./gradlew nativeRun
 ```
 
 In a terminal window use curl to submit a POST REST request to the application to create an item:
@@ -86,14 +83,16 @@ Demonstrates spinning up the application in a docker container and hitting this 
 
 For more on the component tests see: https://github.com/lydtechconsulting/component-test-framework
 
-Build Micronaut application jar:
+Build the Micronaut application jar, followed by the Docker container:
 ```
 ./gradlew clean build
+docker build -t ct/micronaut-rest-java:latest .
 ```
 
-Build Docker container:
+Alternatively, build a native executable with GraalVM, followed by the Docker container:
 ```
-docker build -t ct/micronaut-rest-java:latest .
+./gradlew clean nativeCompile
+./gradlew dockerBuildNative
 ```
 
 Run component tests:
@@ -103,8 +102,10 @@ Run component tests:
 
 Run tests leaving containers up:
 ```
-./gradlew test -Dcontainers.stayup
+./gradlew componentTest --rerun-tasks -Dcontainers.stayup=true
 ```
+
+Note that `--rerun-tasks` is required for subsequent runs when no change has happened between test runs.
 
 ## Docker Clean Up
 
