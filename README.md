@@ -13,7 +13,7 @@ The project requires Java 21 to build.
 
 Build and test the Micronaut application:
 ```
-./gradlew test
+./gradlew clean test
 ```
 
 Optionally build a native executable with GraalVM (version 21) - [install instructions](https://www.graalvm.org/latest/docs/getting-started/), then:
@@ -78,4 +78,37 @@ curl -i -X DELETE localhost:9001/v1/items/653d06f08faa89580090466e
 The Micronaut application should log the successful deletion of the item:
 ```
 Deleted item with id: 653d06f08faa89580090466e
+```
+
+## Component Tests
+
+Demonstrates spinning up the application in a docker container and hitting this via the REST API to create, retrieve, update, and delete an item.
+
+For more on the component tests see: https://github.com/lydtechconsulting/component-test-framework
+
+Build Micronaut application jar:
+```
+./gradlew clean build
+```
+
+Build Docker container:
+```
+docker build -t ct/micronaut-rest-java:latest .
+```
+
+Run component tests:
+```
+./gradlew componentTest --rerun-tasks
+```
+
+Run tests leaving containers up:
+```
+./gradlew test -Dcontainers.stayup
+```
+
+## Docker Clean Up
+
+Manual clean up (if left containers up):
+```
+docker rm -f $(docker ps -aq)
 ```
