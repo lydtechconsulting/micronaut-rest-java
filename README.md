@@ -79,7 +79,7 @@ Deleted item with id: 653d06f08faa89580090466e
 
 ## Component Tests
 
-Demonstrates spinning up the application in a docker container and hitting this via the REST API to create, retrieve, update, and delete an item.
+The component tests bring up the application in a docker container and hit this via the REST API to create, retrieve, update, and delete an item.
 
 For more on the component tests see: https://github.com/lydtechconsulting/component-test-framework
 
