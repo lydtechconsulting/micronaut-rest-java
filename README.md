@@ -7,6 +7,9 @@ Demo Micronaut application written in Java exposing a REST API to enable perform
 
 Demonstrates using both a standard JVM-based application and a native image using GraalVM.  GraalVM compiles the Java application ahead of time into a platform-specific native binary executable. This native executable does not require a Java runtime environment to execute. Instead, it can be executed directly on the target platform.  This can lead to faster startup times and reduced memory footprint compared to running on the JVM.
 
+The companion project, with the application written in Kotlin instead of Java, is available here:
+https://github.com/lydtechconsulting/micronaut-rest-kotlin
+
 ## Running The Demo
 
 The project requires Java 21 to build.
