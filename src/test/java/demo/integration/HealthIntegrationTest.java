@@ -19,7 +19,7 @@ public class HealthIntegrationTest {
     HttpClient client;
 
     @Test
-    public void healthEndpointExposed() {
+    public void testHealthEndpoint() {
         HttpStatus status = client.toBlocking().retrieve(HttpRequest.GET("/health"), HttpStatus.class);
         assertThat(status, equalTo(HttpStatus.OK));
     }
