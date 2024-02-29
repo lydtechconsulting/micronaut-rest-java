@@ -40,7 +40,7 @@ public class EndToEndCT {
     public void testItemCRUD() {
 
         // Test the POST endpoint to create an item.
-        CreateItemRequest createRequest = TestRestData.buildCreateItemRequest(RandomStringUtils.randomAlphabetic(1).toUpperCase()+RandomStringUtils.randomAlphabetic(7).toLowerCase()+"1");
+        CreateItemRequest createRequest = TestRestData.buildCreateItemRequest(RandomStringUtils.randomAlphabetic(8).toLowerCase()+"1");
         Response createItemResponse = sendCreateItemRequest(createRequest);
         String itemId = createItemResponse.header("Location");
         assertThat(itemId, notNullValue());
@@ -50,7 +50,7 @@ public class EndToEndCT {
         sendGetItemRequest(itemId, createRequest.name());
 
         // Test the PUT endpoint to update the item name.
-        UpdateItemRequest updateRequest = TestRestData.buildUpdateItemRequest(RandomStringUtils.randomAlphabetic(1).toUpperCase()+RandomStringUtils.randomAlphabetic(7).toLowerCase()+"2");
+        UpdateItemRequest updateRequest = TestRestData.buildUpdateItemRequest(RandomStringUtils.randomAlphabetic(8).toLowerCase()+"2");
         sendUpdateRequest(itemId, updateRequest);
 
         // Ensure the name was updated.
