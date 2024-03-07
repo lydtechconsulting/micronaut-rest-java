@@ -15,7 +15,7 @@ https://github.com/lydtechconsulting/micronaut-rest-kotlin
 
 The project requires Java 21 to build.
 
-Build and test the Micronaut application, and then run it, with the following commands:
+Build and test the Micronaut application, and then run, with:
 ```
 ./gradlew clean test
 ./gradlew run
