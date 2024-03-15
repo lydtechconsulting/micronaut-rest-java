@@ -27,7 +27,7 @@ Alternatively, following tests, build a native executable with GraalVM (version 
 ./gradlew nativeCompile
 ./gradlew nativeRun
 ```
-The standard `test` task is used as using the `@MicronautTest` annotation on the integration tests is not compatible with Kotlin/Native.
+The standard `test` task is used as using the `@MicronautTest` annotation on the integration tests is not compatible with Java/Native.
 
 In a terminal window use curl request to create (which returns a location header), retrieve, update and delete an item:
 ```
